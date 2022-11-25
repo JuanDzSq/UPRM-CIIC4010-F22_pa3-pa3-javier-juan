@@ -31,4 +31,8 @@ class ofApp : public ofBaseApp {
     void drawMode2(float x, float y, int n, float length, float rad);
     void drawMode3(float x, float y, float size, int n);
     void drawMode4(float x, float y, float n);
+
+
+    int level = 0;
+    int num;
 };

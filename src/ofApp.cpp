@@ -21,21 +21,57 @@ void ofApp::draw() {
         // Circle
         float r = 0.31 * ofGetHeight();
         angle += 0.01;
-        drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, r, 3);
+        num = 3 + level;
+        if (num < 0){
+            num = 0;
+            level++;
+        }
+        else if (num > 6){
+            num = 6;
+            level--;
+        }
+        drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, r, num);
     } break;
     case '2': {
         // Tree
         float length = 0.31 * ofGetHeight();
-        drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, 10, length, 1.5 * PI);
+        num = 10 + level;
+        if (num < 0){
+            num = 0;
+            level++;
+        }
+        else if (num > 16){
+            num = 16;
+            level--;
+        }
+        drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, num, length, 1.5 * PI);
     } break;
     case '3': {
         // Sierpinski Triangle
         float size = 0.88 * ofGetHeight();
-        drawMode3((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, 7);
+        num = 7 + level;
+        if (num < 0){
+            num = 0;
+            level++;
+        }
+        else if (num > 12){
+            num = 13;
+            level--;
+        }
+        drawMode3((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, num);
     } break;
     case '4':
         // Barnsley Fern
-        drawMode4(0, 0, 10 * 1000);
+        num = (level + 10) * (1000);
+        if (num < 0){
+            num = 0;
+            level++;
+        }
+        else if (num > 18000){
+            num = 18000;
+            level--;
+        }
+        drawMode4(0, 0, num);
         break;
     case '5':
         // Koch SnowFlake
@@ -119,12 +155,19 @@ void ofApp::drawMode4(float x, float y, float n) {
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
 
-    if (key >= '1' && key <= '5')
+    if (key >= '1' && key <= '5'){
         mode = key;
+        level = 0;
+        num = 0;
+    }
     else if (key == OF_KEY_F11)
         ofSetFullscreen(fullscreen++ % 2 == 0);
     else if (key == OF_KEY_ESC)
         ofSetFullscreen(false);
+    else if (key == OF_KEY_LEFT)
+        level--;
+    else if(key == OF_KEY_RIGHT)
+        level++;
 }
 
 //--------------------------------------------------------------
