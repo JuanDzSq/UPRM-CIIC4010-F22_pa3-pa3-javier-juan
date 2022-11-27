@@ -5,6 +5,7 @@
 void ofApp::setup() {
     ofSetEscapeQuitsApp(false);
     fullscreen = 0;
+    snow = new SnowFlake();
 }
 
 //--------------------------------------------------------------
@@ -21,61 +22,61 @@ void ofApp::draw() {
         // Circle
         float r = 0.31 * ofGetHeight();
         angle += 0.01;
-        num = 3 + level;
-        if (num < 0){
-            num = 0;
-            level++;
+        setNum(3 + getLevel());
+        if (getNum() < 0){
+            setNum(0);
+            setLevel(getLevel() + 1);
         }
-        else if (num > 6){
-            num = 6;
-            level--;
+        else if (getNum() > 6){
+            setNum(6);
+            setLevel(getLevel() - 1);
         }
-        drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, r, num);
+        drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, r, getNum());
     } break;
     case '2': {
         // Tree
         float length = 0.31 * ofGetHeight();
-        num = 10 + level;
-        if (num < 0){
-            num = 0;
-            level++;
+        setNum(10 + getLevel());
+        if (getNum() < 0){
+            setNum(0);
+            setLevel(getLevel() + 1);
         }
-        else if (num > 16){
-            num = 16;
-            level--;
+        else if (getNum() > 16){
+            setNum(16);
+            setLevel(getLevel() - 1);
         }
-        drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, num, length, 1.5 * PI);
+        drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, getNum(), length, 1.5 * PI);
     } break;
     case '3': {
         // Sierpinski Triangle
         float size = 0.88 * ofGetHeight();
-        num = 7 + level;
-        if (num < 0){
-            num = 0;
-            level++;
+        setNum(7 + getLevel());
+        if (getNum() < 0){
+            setNum(0);
+            setLevel(getLevel() + 1);
         }
-        else if (num > 12){
-            num = 13;
-            level--;
+        else if (getNum() > 12){
+            setNum(12);
+            setLevel(getLevel() - 1);
         }
-        drawMode3((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, num);
+        drawMode3((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, getNum());
     } break;
     case '4':
         // Barnsley Fern
-        num = (level + 10) * (1000);
-        if (num < 0){
-            num = 0;
-            level++;
+        setNum((getLevel() + 10) * 1000);
+        if (getNum() < 0){
+            setNum(0);
+            setLevel(getLevel() + 1);
         }
-        else if (num > 18000){
-            num = 18000;
-            level--;
+        else if (getNum() > 18000){
+            setNum(18000);
+            setLevel(getLevel() - 1);
         }
-        drawMode4(0, 0, num);
+        drawMode4(0, 0, getNum());
         break;
     case '5':
         // Koch SnowFlake
-        SnowFlake().draw();
+        snow->draw();
         break;
     }
 }
@@ -157,17 +158,17 @@ void ofApp::keyPressed(int key) {
 
     if (key >= '1' && key <= '5'){
         mode = key;
-        level = 0;
-        num = 0;
+        setLevel(0);
+        setNum(0);
     }
     else if (key == OF_KEY_F11)
         ofSetFullscreen(fullscreen++ % 2 == 0);
     else if (key == OF_KEY_ESC)
         ofSetFullscreen(false);
     else if (key == OF_KEY_LEFT)
-        level--;
+        setLevel(getLevel() - 1);
     else if(key == OF_KEY_RIGHT)
-        level++;
+        setLevel(getLevel() + 1);
 }
 
 //--------------------------------------------------------------
