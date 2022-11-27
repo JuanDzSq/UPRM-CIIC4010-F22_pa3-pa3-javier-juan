@@ -28,7 +28,7 @@ class ofApp : public ofBaseApp {
     void gotMessage(ofMessage msg);
 
     void drawMode1(float x, float y, float r, int n);
-    void drawMode2(float x, float y, int n, float length, float rad);
+    void drawMode2(float x, float y, int n, float length, float rad, float x3, float y3);
     void drawMode3(float x, float y, float size, int n);
     void drawMode4(float x, float y, float n);
 };
