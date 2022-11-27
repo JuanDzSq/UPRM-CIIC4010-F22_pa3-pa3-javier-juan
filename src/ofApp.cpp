@@ -27,6 +27,8 @@ void ofApp::draw() {
         // Tree
         float length = 0.31 * ofGetHeight();
         drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, 10, length, 1.5 * PI);
+        drawMode2(ofGetWidth() * 19 / 20, ofGetHeight() - 20, 10, length / 2, 1.5 * PI);
+        drawMode2(ofGetWidth() / 20, ofGetHeight() - 20, 10, length / 2, 1.5 * PI);
     } break;
     case '3': {
         // Sierpinski Triangle
