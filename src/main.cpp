@@ -3,7 +3,7 @@
 
 //========================================================================
 int main() {
-    ofSetupOpenGL(1440, 1000, OF_WINDOW); // <-------- setup the GL context
+    ofSetupOpenGL(1900, 1000, OF_WINDOW); // <-------- setup the GL context
     ofSetFrameRate(60);
 
     // this kicks off the running of my app
