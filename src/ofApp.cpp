@@ -26,7 +26,7 @@ void ofApp::draw() {
     case '2': {
         // Tree
         float length = 0.31 * ofGetHeight();
-        drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, 10, length, 1.5 * PI, ofGetWidth() / 2, ofGetHeight() - 20);
+        drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, 10, length, 1.5 * PI);
     } break;
     case '3': {
         // Sierpinski Triangle
@@ -64,23 +64,16 @@ void ofApp::drawMode1(float x, float y, float r, int n) {
     drawMode1(x + r * cos(angle6), y + r * sin(angle6), delta, n - 1);
 }
 
-void ofApp::drawMode2(float x, float y, int n, float length, float rad, float x3, float y3) {
+void ofApp::drawMode2(float x, float y, int n, float length, float rad) {
     if (n == 0) return;
 
-    
     float x2 = x + length * cos(rad);
     float y2 = y + length * sin(rad);
 
-    float x4 = x3 + length/4 * cos(rad);
-    float y4 = y3 + length/4 * sin(rad);
-
     ofDrawLine(x, y, x2, y2);
 
-    ofDrawLine(x3 - ofGetWidth()/3, y3, x4 - ofGetWidth()/3, y4);
-    ofDrawLine(x3 + ofGetWidth()/3, y3, x4 + ofGetWidth()/3, y4);
-
-    drawMode2(x2, y2, n - 1, 0.7 * length, rad + 0.2 * PI, x4, y4);
-    drawMode2(x2, y2, n - 1, 0.7 * length, rad - 0.2 * PI, x4, y4);
+    drawMode2(x2, y2, n - 1, 0.7 * length, rad + 0.2 * PI);
+    drawMode2(x2, y2, n - 1, 0.7 * length, rad - 0.2 * PI);
 }
 
 void ofApp::drawMode3(float x, float y, float size, int n) {
