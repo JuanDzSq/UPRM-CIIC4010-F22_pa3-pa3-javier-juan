@@ -12,7 +12,8 @@ class SnowFlake {
   private:
     glm::vec2 start;
     glm::vec2 end;
-
+    int level;
+    int num;
   public:
     SnowFlake();
     SnowFlake(glm::vec2 start, glm::vec2 end);
@@ -30,4 +31,10 @@ class SnowFlake {
     glm::vec2 getC();
     glm::vec2 getD();
     glm::vec2 getE();
+
+
+    int getNum(){return num;};
+    void setNum(int num){this->num = num;};
+    int getLevel(){return level;};
+    void setLevel(int level){this->level = level;};
 };

@@ -21,23 +21,59 @@ void ofApp::draw() {
         // Circle
         float r = 0.31 * ofGetHeight();
         angle += 0.01;
-        drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, r, 3);
+        setNum(3 + getLevel());
+        if (getNum() < 0){
+            setNum(0);
+            setLevel(getLevel() + 1);
+        }
+        else if (getNum() > 6){
+            setNum(6);
+            setLevel(getLevel() - 1);
+        }
+        drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, r, getNum());
     } break;
     case '2': {
         // Tree
         float length = 0.31 * ofGetHeight();
-        drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, 10, length, 1.5 * PI);
+        setNum(10 + getLevel());
+        if (getNum() < 0){
+            setNum(0);
+            setLevel(getLevel() + 1);
+        }
+        else if (getNum() > 16){
+            setNum(16);
+            setLevel(getLevel() - 1);
+        }
+        drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, getNum(), length, 1.5 * PI);
         drawMode2(ofGetWidth() * 19 / 20, ofGetHeight() - 20, 10, length / 2, 1.5 * PI);
         drawMode2(ofGetWidth() / 20, ofGetHeight() - 20, 10, length / 2, 1.5 * PI);
     } break;
     case '3': {
         // Sierpinski Triangle
         float size = 0.88 * ofGetHeight();
-        drawMode3((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, 7);
+        setNum(7 + getLevel());
+        if (getNum() < 0){
+            setNum(0);
+            setLevel(getLevel() + 1);
+        }
+        else if (getNum() > 12){
+            setNum(12);
+            setLevel(getLevel() - 1);
+        }
+        drawMode3((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, getNum());
     } break;
     case '4':
         // Barnsley Fern
-        drawMode4(0, 0, 10 * 1000);
+        setNum((getLevel() + 10) * 1000);
+        if (getNum() < 0){
+            setNum(0);
+            setLevel(getLevel() + 1);
+        }
+        else if (getNum() > 18000){
+            setNum(18000);
+            setLevel(getLevel() - 1);
+        }
+        drawMode4(0, 0, getNum());
         break;
     case '5':
         // Koch SnowFlake
@@ -121,12 +157,19 @@ void ofApp::drawMode4(float x, float y, float n) {
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
 
-    if (key >= '1' && key <= '5')
+    if (key >= '1' && key <= '5'){
         mode = key;
+        setLevel(0);
+        setNum(0);
+    }
     else if (key == OF_KEY_F11)
         ofSetFullscreen(fullscreen++ % 2 == 0);
     else if (key == OF_KEY_ESC)
         ofSetFullscreen(false);
+    else if (key == OF_KEY_LEFT)
+        setLevel(getLevel() - 1);
+    else if(key == OF_KEY_RIGHT)
+        setLevel(getLevel() + 1);
 }
 
 //--------------------------------------------------------------
