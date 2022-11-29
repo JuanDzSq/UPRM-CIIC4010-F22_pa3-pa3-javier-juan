@@ -38,5 +38,4 @@ class ofApp : public ofBaseApp {
     void setNum(int num){this->num = num;};
     int getLevel(){return level;};
     void setLevel(int level){this->level = level;};
-    SnowFlake *snow;
 };

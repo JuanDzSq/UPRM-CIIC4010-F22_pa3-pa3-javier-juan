@@ -5,7 +5,6 @@
 void ofApp::setup() {
     ofSetEscapeQuitsApp(false);
     fullscreen = 0;
-    snow = new SnowFlake();
 }
 
 //--------------------------------------------------------------
@@ -76,7 +75,7 @@ void ofApp::draw() {
         break;
     case '5':
         // Koch SnowFlake
-        snow->draw();
+        SnowFlake().draw();
         break;
     }
 }
