@@ -2,21 +2,24 @@
 
 #include "ofMain.h"
 #include <cmath>
+#include "AbstractFractal.h"
+#include <string>
 
 /**
  * @brief Koch SnowFlake Fractal
  *
  */
 
-class SnowFlake {
+class SnowFlake : public AbstractFractal {
   private:
     glm::vec2 start;
     glm::vec2 end;
-    int level;
-    int num;
+    // string name;
+    // int level;
+    // int num;
   public:
     SnowFlake();
-    SnowFlake(glm::vec2 start, glm::vec2 end);
+    SnowFlake(string name, int level, int num, glm::vec2 start, glm::vec2 end);
 
     glm::vec2 getStart() const { return start; }
     glm::vec2 getEnd() const { return end; }
@@ -32,9 +35,12 @@ class SnowFlake {
     glm::vec2 getD();
     glm::vec2 getE();
 
-
-    int getNum(){return num;};
-    void setNum(int num){this->num = num;};
+    //Getters
+    string getName(){return name;};
     int getLevel(){return level;};
+    int getNum(){return num;};
+    
+    //Setters
+    void setNum(int num){this->num = num;};
     void setLevel(int level){this->level = level;};
 };
