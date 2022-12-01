@@ -17,7 +17,7 @@ protected:
 public:
     //Constructor
     AbstractFractal();
-    AbstractFractal(string name, int level, int num);
+    AbstractFractal(string name, int level);
 
     //Getters
     virtual float getX() { return x; }

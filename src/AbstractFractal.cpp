@@ -3,10 +3,9 @@
 AbstractFractal::AbstractFractal(){
 }
 
-AbstractFractal::AbstractFractal(string name, int level, int num){
+AbstractFractal::AbstractFractal(string name, int level){
     this->name = name;
     this->level = level;
-    this->num = num;
 }
 
 void AbstractFractal::draw(){
