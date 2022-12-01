@@ -2,16 +2,21 @@
 
 SnowFlake::SnowFlake() {
     name = "Snow Flake";
+    size = 0.74 * ofGetHeight();
+    num = 0;
+    level = 0;
 }
 
-SnowFlake::SnowFlake(string name, int level, int num, glm::vec2 start, glm::vec2 end) : AbstractFractal(name, 0, 0) {
+SnowFlake::SnowFlake(string name, int level, float size, glm::vec2 start, glm::vec2 end) : AbstractFractal(name, level) {
     this->name = name;
+    this->level = level;
+    this->size = size;
     this->start = start;
     this->end = end;
 }
 
 void SnowFlake::draw() {
-    float size = 0.74 * ofGetHeight();
+    //float size = 0.74 * ofGetHeight();
 
     glm::vec2 p1 = {(ofGetWidth() - size) / 2, (ofGetHeight() - size * sin(PI / 3)) / 2 + 0.15 * size};
     glm::vec2 p2 = {(ofGetWidth() + size) / 2, (ofGetHeight() - size * sin(PI / 3)) / 2 + 0.15 * size};
@@ -20,26 +25,26 @@ void SnowFlake::draw() {
     setNum(getLevel() + 5);
     if (getNum() < 0){
         setNum(0);
-        setLevel(getLevel() + 1);
+        setLevel(-5);
     }
     else if (getNum() > 10){
         setNum(10);
-        setLevel(getLevel() - 1);
+        setLevel(5);
     }
     if(getNum() > 0){
-        draw(getNum(), new SnowFlake(name, level, num, p1, p2));
-        draw(getNum(), new SnowFlake(name, level, num, p2, p3));
-        draw(getNum(), new SnowFlake(name, level, num, p3, p1));
+        draw(getNum(), new SnowFlake(name, level, size, p1, p2));
+        draw(getNum(), new SnowFlake(name, level, size, p2, p3));
+        draw(getNum(), new SnowFlake(name, level, size, p3, p1));
     }
 }
 void SnowFlake::draw(int n, SnowFlake *flake) {
     if (n < 2)
         ofDrawLine(flake->getStart(), flake->getEnd());
     else {
-        draw(n - 1, new SnowFlake(name, level, num, flake->getA(), flake->getB()));
-        draw(n - 1, new SnowFlake(name, level, num, flake->getB(), flake->getC()));
-        draw(n - 1, new SnowFlake(name, level, num, flake->getC(), flake->getD()));
-        draw(n - 1, new SnowFlake(name, level, num, flake->getD(), flake->getE()));
+        draw(n - 1, new SnowFlake(name, level, size, flake->getA(), flake->getB()));
+        draw(n - 1, new SnowFlake(name, level, size, flake->getB(), flake->getC()));
+        draw(n - 1, new SnowFlake(name, level, size, flake->getC(), flake->getD()));
+        draw(n - 1, new SnowFlake(name, level, size, flake->getD(), flake->getE()));
     }
     delete flake;
 }
