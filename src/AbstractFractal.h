@@ -11,22 +11,29 @@ protected:
     float y;
     int n;
     string name;
-    int level;
+    int level = 0;
+    int num = 0;
 
 public:
-    //constructor
+    //Constructor
     AbstractFractal();
-    AbstractFractal(string name, int level, float x, float y, int n);
-    //getters
-    float getX() { return x; }
-    float getY() { return y; }
-    int getN() { return n; }
-    string getName() { return name; };
-    int getLevel() { return level; };
-    //setters
-    void setX(float x) { this->x = x; }
-    void setY(float y) { this->y = y; }
-    void setN(float n) { this->n = n; }
-    //methods
+    AbstractFractal(string name, int level, int num);
+
+    //Getters
+    virtual float getX() { return x; }
+    virtual float getY() { return y; }
+    virtual int getN() { return n; }
+    virtual string getName() { return name; }
+    virtual int getLevel() { return level; }
+    virtual int getNum() { return num; }
+
+    //Setters
+    virtual void setX(float x) { this->x = x; }
+    virtual void setY(float y) { this->y = y; }
+    virtual void setN(float n) { this->n = n; }
+    virtual void setLevel(int level){this->level = level;}
+    virtual void setNum(int num){this->num = num;}
+
+    //Methods
     virtual void draw() = 0;
 };
