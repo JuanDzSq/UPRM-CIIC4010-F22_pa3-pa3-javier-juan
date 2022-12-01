@@ -1,13 +1,14 @@
 #include "ofApp.hpp"
 #include "SnowFlake.hpp"
+#include "Circle.h"
 
 //--------------------------------------------------------------
 void ofApp::setup() {
     ofSetEscapeQuitsApp(false);
     fullscreen = 0;
-    snow = new SnowFlake();
-
-    currentFractal = snow;
+    snowflakeFractal = new SnowFlake();
+    circleFractal = new Circle();
+    currentFractal = circleFractal;
 }
 
 //--------------------------------------------------------------
@@ -22,18 +23,20 @@ void ofApp::draw() {
     switch (mode) {
     case '1': {
         // Circle
-        float r = 0.31 * ofGetHeight();
-        angle += 0.01;
+        //float r = 0.31 * ofGetHeight();
+        // angle += 0.01;
         // setNum(3 + getLevel());
         // if (getNum() < 0){
         //     setNum(0);
-        //     setLevel(getLevel() + 1);
+        //     setLevel(-3);
         // }
         // else if (getNum() > 6){
         //     setNum(6);
-        //     setLevel(getLevel() - 1);
+        //     setLevel(3);
         // }
-        drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, r, /*getNum()*/ 3);
+        // drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, r, getNum());
+        currentFractal = circleFractal;
+        currentFractal->draw();
     } break;
     case '2': {
         // Tree
@@ -41,11 +44,11 @@ void ofApp::draw() {
         // setNum(10 + getLevel());
         // if (getNum() < 0){
         //     setNum(0);
-        //     setLevel(getLevel() + 1);
+        //     setLevel(-10);
         // }
         // else if (getNum() > 16){
         //     setNum(16);
-        //     setLevel(getLevel() - 1);
+        //     setLevel(6);
         // }
         drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, /*getNum()*/ 10, length, 1.5 * PI);
         drawMode2(ofGetWidth() * 19 / 20, ofGetHeight() - 20, 10, length / 2, 1.5 * PI);
@@ -57,55 +60,56 @@ void ofApp::draw() {
         // setNum(7 + getLevel());
         // if (getNum() < 0){
         //     setNum(0);
-        //     setLevel(getLevel() + 1);
+        //     setLevel(-7);
         // }
         // else if (getNum() > 12){
         //     setNum(12);
-        //     setLevel(getLevel() - 1);
+        //     setLevel(5);
         // }
         drawMode3((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, /*getNum()*/ 7);
     } break;
-    case '4':
+    case '4': {
         // Barnsley Fern
         // setNum((getLevel() + 10) * 1000);
         // if (getNum() < 0){
         //     setNum(0);
-        //     setLevel(getLevel() + 1);
+        //     setLevel(-10);
         // }
         // else if (getNum() > 18000){
         //     setNum(18000);
-        //     setLevel(getLevel() - 1);
+        //     setLevel(8);
         // }
         drawMode4(0, 0, /*getNum()*/ 1000);
-        break;
+    } break;
     case '5':
         // Koch SnowFlake
-        snow->draw();
+        currentFractal = snowflakeFractal;
+        currentFractal->draw();
         break;
     }
-    ofDrawBitmapString(currentFractal->getName(), 10, 10);
-    ofDrawBitmapString(ofToString(currentFractal->getLevel()), 10, 30);
+    ofDrawBitmapString(currentFractal->getName(), 10, 10);                  //Testing Purposes
+    ofDrawBitmapString(ofToString(currentFractal->getLevel()), 10, 30);     //Testing Purposes
 }
 
-void ofApp::drawMode1(float x, float y, float r, int n) {
-    if (n == 0) return;
+// void ofApp::drawMode1(float x, float y, float r, int n) {
+//     if (n == 0) return;
 
-    int delta = r * 0.35;
-    ofDrawCircle(x, y, r);
+//     int delta = r * 0.35;
+//     ofDrawCircle(x, y, r);
 
-    float angle1 = angle;
-    float angle2 = PI / 3 + angle;
-    float angle3 = PI + angle;
-    float angle4 = 2 * PI / 3 + angle;
-    float angle5 = 4 * PI / 3 + angle;
-    float angle6 = 5 * PI / 3 + angle;
-    drawMode1(x + r * cos(angle1), y + r * sin(angle1), delta, n - 1);
-    drawMode1(x + r * cos(angle2), y + r * sin(angle2), delta, n - 1);
-    drawMode1(x + r * cos(angle3), y + r * sin(angle3), delta, n - 1);
-    drawMode1(x + r * cos(angle4), y + r * sin(angle4), delta, n - 1);
-    drawMode1(x + r * cos(angle5), y + r * sin(angle5), delta, n - 1);
-    drawMode1(x + r * cos(angle6), y + r * sin(angle6), delta, n - 1);
-}
+//     float angle1 = angle;
+//     float angle2 = PI / 3 + angle;
+//     float angle3 = PI + angle;
+//     float angle4 = 2 * PI / 3 + angle;
+//     float angle5 = 4 * PI / 3 + angle;
+//     float angle6 = 5 * PI / 3 + angle;
+//     drawMode1(x + r * cos(angle1), y + r * sin(angle1), delta, n - 1);
+//     drawMode1(x + r * cos(angle2), y + r * sin(angle2), delta, n - 1);
+//     drawMode1(x + r * cos(angle3), y + r * sin(angle3), delta, n - 1);
+//     drawMode1(x + r * cos(angle4), y + r * sin(angle4), delta, n - 1);
+//     drawMode1(x + r * cos(angle5), y + r * sin(angle5), delta, n - 1);
+//     drawMode1(x + r * cos(angle6), y + r * sin(angle6), delta, n - 1);
+// }
 
 void ofApp::drawMode2(float x, float y, int n, float length, float rad) {
     if (n == 0) return;
@@ -164,8 +168,8 @@ void ofApp::keyPressed(int key) {
 
     if (key >= '1' && key <= '5'){
         mode = key;
-        currentFractal->setLevel(0);
-        currentFractal->setNum(0);
+        // currentFractal->setLevel(0);
+        // currentFractal->setNum(0);
     }
     else if (key == OF_KEY_F11)
         ofSetFullscreen(fullscreen++ % 2 == 0);

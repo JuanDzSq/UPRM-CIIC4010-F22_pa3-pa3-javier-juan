@@ -1,20 +1,18 @@
 #pragma once
 
 #include <cmath>
-#include <string>
 
 #include "ofMain.h"
 #include "SnowFlake.hpp"
+#include "Circle.h"
 
 class ofApp : public ofBaseApp {
   private:
     char mode = '1';
-    float angle = 0;
+    //float angle = 0;
     unsigned int fullscreen;
     // int level = 0;
     // int num;
-    AbstractFractal* currentFractal;
-    SnowFlake* snow;
 
   public:
     void setup();
@@ -33,7 +31,11 @@ class ofApp : public ofBaseApp {
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
 
-    void drawMode1(float x, float y, float r, int n);
+    AbstractFractal* currentFractal;
+    SnowFlake* snowflakeFractal;
+    Circle* circleFractal;
+
+    //void drawMode1(float x, float y, float r, int n);
     void drawMode2(float x, float y, int n, float length, float rad);
     void drawMode3(float x, float y, float size, int n);
     void drawMode4(float x, float y, float n);
