@@ -1,9 +1,11 @@
 #include "SnowFlake.hpp"
 
 SnowFlake::SnowFlake() {
+    name = "Snow Flake";
 }
 
-SnowFlake::SnowFlake(glm::vec2 start, glm::vec2 end) {
+SnowFlake::SnowFlake(string name, int level, int num, glm::vec2 start, glm::vec2 end) : AbstractFractal(name, 0, 0) {
+    this->name = name;
     this->start = start;
     this->end = end;
 }
@@ -24,18 +26,20 @@ void SnowFlake::draw() {
         setNum(10);
         setLevel(getLevel() - 1);
     }
-    draw(getNum(), new SnowFlake(p1, p2));
-    draw(getNum(), new SnowFlake(p2, p3));
-    draw(getNum(), new SnowFlake(p3, p1));
+    if(getNum() > 0){
+        draw(getNum(), new SnowFlake(name, level, num, p1, p2));
+        draw(getNum(), new SnowFlake(name, level, num, p2, p3));
+        draw(getNum(), new SnowFlake(name, level, num, p3, p1));
+    }
 }
 void SnowFlake::draw(int n, SnowFlake *flake) {
     if (n < 2)
         ofDrawLine(flake->getStart(), flake->getEnd());
     else {
-        draw(n - 1, new SnowFlake(flake->getA(), flake->getB()));
-        draw(n - 1, new SnowFlake(flake->getB(), flake->getC()));
-        draw(n - 1, new SnowFlake(flake->getC(), flake->getD()));
-        draw(n - 1, new SnowFlake(flake->getD(), flake->getE()));
+        draw(n - 1, new SnowFlake(name, level, num, flake->getA(), flake->getB()));
+        draw(n - 1, new SnowFlake(name, level, num, flake->getB(), flake->getC()));
+        draw(n - 1, new SnowFlake(name, level, num, flake->getC(), flake->getD()));
+        draw(n - 1, new SnowFlake(name, level, num, flake->getD(), flake->getE()));
     }
     delete flake;
 }
