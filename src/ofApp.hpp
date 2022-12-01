@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cmath>
+#include <string>
 
 #include "ofMain.h"
 #include "SnowFlake.hpp"
@@ -10,8 +11,11 @@ class ofApp : public ofBaseApp {
     char mode = '1';
     float angle = 0;
     unsigned int fullscreen;
-    int level = 0;
-    int num;
+    // int level = 0;
+    // int num;
+    AbstractFractal* currentFractal;
+    SnowFlake* snow;
+
   public:
     void setup();
     void update();
@@ -34,8 +38,8 @@ class ofApp : public ofBaseApp {
     void drawMode3(float x, float y, float size, int n);
     void drawMode4(float x, float y, float n);
 
-    int getNum(){return num;};
-    void setNum(int num){this->num = num;};
-    int getLevel(){return level;};
-    void setLevel(int level){this->level = level;};
+    // int getNum(){return num;};
+    // void setNum(int num){this->num = num;};
+    //int getLevel(){return level;};
+    //void setLevel(int level){this->level = level;};
 };
