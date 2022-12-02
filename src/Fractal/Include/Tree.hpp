@@ -8,6 +8,7 @@ class Tree : public AbstractFractal {
   private:
     float length;
     float rad;
+    
   public:
     Tree();
     Tree(string name, int level, float length, float rad);

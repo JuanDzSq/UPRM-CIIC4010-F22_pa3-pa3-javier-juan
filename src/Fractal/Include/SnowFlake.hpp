@@ -17,6 +17,7 @@ class SnowFlake : public AbstractFractal {
     // string name;
     // int level;
     // int num;
+    
   public:
     SnowFlake();
     SnowFlake(string name, int level, float size, glm::vec2 start, glm::vec2 end);
