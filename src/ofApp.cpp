@@ -6,9 +6,11 @@
 void ofApp::setup() {
     ofSetEscapeQuitsApp(false);
     fullscreen = 0;
-    snowflakeFractal = new SnowFlake();
+    snowFlakeFractal = new SnowFlake();
     circleFractal = new Circle();
     treeFractal = new Tree();
+    sierpinskiTriangleFractal = new SierpinskiTriangle();
+
     currentFractal = circleFractal;
 }
 
@@ -59,7 +61,7 @@ void ofApp::draw() {
     } break;
     case '3': {
         // Sierpinski Triangle
-        float size = 0.88 * ofGetHeight();
+        // float size = 0.88 * ofGetHeight();
         // setNum(7 + getLevel());
         // if (getNum() < 0){
         //     setNum(0);
@@ -69,7 +71,9 @@ void ofApp::draw() {
         //     setNum(12);
         //     setLevel(5);
         // }
-        drawMode3((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, /*getNum()*/ 7);
+        // drawMode3((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, getNum());
+        currentFractal = sierpinskiTriangleFractal;
+        currentFractal->draw();
     } break;
     case '4': {
         // Barnsley Fern
@@ -86,7 +90,7 @@ void ofApp::draw() {
     } break;
     case '5':
         // Koch SnowFlake
-        currentFractal = snowflakeFractal;
+        currentFractal = snowFlakeFractal;
         currentFractal->draw();
         break;
     }

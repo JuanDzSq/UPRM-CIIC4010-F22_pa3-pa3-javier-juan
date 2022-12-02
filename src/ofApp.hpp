@@ -6,6 +6,7 @@
 #include "SnowFlake.hpp"
 #include "Circle.hpp"
 #include "Tree.hpp"
+#include "SierpinskiTriangle.hpp"
 
 class ofApp : public ofBaseApp {
   private:
@@ -33,9 +34,10 @@ class ofApp : public ofBaseApp {
     void gotMessage(ofMessage msg);
 
     AbstractFractal* currentFractal;
-    SnowFlake* snowflakeFractal;
+    SnowFlake* snowFlakeFractal;
     Circle* circleFractal;
     Tree* treeFractal;
+    SierpinskiTriangle* sierpinskiTriangleFractal;
 
     //void drawMode1(float x, float y, float r, int n);
     void drawMode2(float x, float y, int n, float length, float rad);
