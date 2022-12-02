@@ -38,14 +38,14 @@ void BarnsleyFern::draw(float x, float y, float n) {
     ofSetColor(ofColor::white);
 
     if (r < 0.01)
-        drawMode4(0, 0.16 * y, n - 1);
+        draw(0, 0.16 * y, n - 1);
 
     else if (r < 0.86)
-        drawMode4(0.85 * x + 0.04 * y, -0.04 * x + 0.85 * y + 1.6, n - 1);
+        draw(0.85 * x + 0.04 * y, -0.04 * x + 0.85 * y + 1.6, n - 1);
 
     else if (r < 0.93)
-        drawMode4(0.2 * x - 0.26 * y, 0.23 * x + 0.22 * y + 1.6, n - 1);
+        draw(0.2 * x - 0.26 * y, 0.23 * x + 0.22 * y + 1.6, n - 1);
 
     else
-        drawMode4(-0.15 * x + 0.28 * y, 0.26 * x + 0.24 * y + 0.44, n - 1);
+        draw(-0.15 * x + 0.28 * y, 0.26 * x + 0.24 * y + 0.44, n - 1);
 }
