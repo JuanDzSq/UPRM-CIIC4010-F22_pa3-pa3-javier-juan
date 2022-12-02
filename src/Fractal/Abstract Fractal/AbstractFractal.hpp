@@ -1,5 +1,5 @@
 #pragma once
-#include <Fractal.h>
+#include <Fractal.hpp>
 #include <string>
 
 using namespace std;

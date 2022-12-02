@@ -1,16 +1,17 @@
-#include "Circle.h"
+#include "Circle.hpp"
 
 Circle::Circle() {
     name = "Circle";
-    r = 0.31 * ofGetHeight();
     num = 0;
     level = 0;
+
+    r = 0.31 * ofGetHeight();
 }
 
 Circle::Circle(string name, int level, float r, float angle) : AbstractFractal(name, level) {
     this->name = name;
     this->level = level;
-    this->r = r * ofGetHeight();
+    this->r = r;
     this->angle = angle;
 }
 

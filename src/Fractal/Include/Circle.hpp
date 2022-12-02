@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 #include <cmath>
-#include "AbstractFractal.h"
+#include "AbstractFractal.hpp"
 
 class Circle : public AbstractFractal {
   private:
