@@ -1,4 +1,4 @@
-#include <AbstractFractal.hpp>
+#include "AbstractFractal.hpp"
 
 AbstractFractal::AbstractFractal(){
 }

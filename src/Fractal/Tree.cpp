@@ -28,7 +28,7 @@ void Tree::draw(){
     }
     draw(ofGetWidth() / 2, ofGetHeight() - 20, getNum(), length, rad);
     draw(ofGetWidth() * 19 / 20, ofGetHeight() - 20, 10, length / 2, rad);
-    draw(ofGetWidth() / 20, ofGetHeight() - 20, 10, length / 2, rad):
+    draw(ofGetWidth() / 20, ofGetHeight() - 20, 10, length / 2, rad);
 }
 
 void Tree::draw(float x, float y, int n, float length, float rad) {
