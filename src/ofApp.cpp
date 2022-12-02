@@ -10,6 +10,7 @@ void ofApp::setup() {
     circleFractal = new Circle();
     treeFractal = new Tree();
     sierpinskiTriangleFractal = new SierpinskiTriangle();
+    barnsleyFernFractal = new BarnsleyFern();
 
     currentFractal = circleFractal;
 }
@@ -86,7 +87,9 @@ void ofApp::draw() {
         //     setNum(18000);
         //     setLevel(8);
         // }
-        drawMode4(0, 0, getNum());
+        // drawMode4(0, 0, getNum());
+        currentFractal = barnsleyFernFractal;
+        currentFractal->draw();
     } break;
     case '5':
         // Koch SnowFlake
@@ -94,8 +97,8 @@ void ofApp::draw() {
         currentFractal->draw();
         break;
     }
-    ofDrawBitmapString(currentFractal->getName(), 10, 10);                  //Testing Purposes
-    ofDrawBitmapString(ofToString(currentFractal->getLevel()), 10, 30);     //Testing Purposes
+    ofDrawBitmapString(currentFractal->getName(), 10, 10);              //Testing Purposes
+    ofDrawBitmapString(ofToString(currentFractal->getLevel()), 10, 30); //Testing Purposes
 }
 
 // void ofApp::drawMode1(float x, float y, float r, int n) {
@@ -118,58 +121,58 @@ void ofApp::draw() {
 //     drawMode1(x + r * cos(angle6), y + r * sin(angle6), delta, n - 1);
 // }
 
-void ofApp::drawMode2(float x, float y, int n, float length, float rad) {
-    if (n == 0) return;
+// void ofApp::drawMode2(float x, float y, int n, float length, float rad) {
+//     if (n == 0) return;
 
-    float x2 = x + length * cos(rad);
-    float y2 = y + length * sin(rad);
+//     float x2 = x + length * cos(rad);
+//     float y2 = y + length * sin(rad);
 
-    ofDrawLine(x, y, x2, y2);
+//     ofDrawLine(x, y, x2, y2);
 
-    drawMode2(x2, y2, n - 1, 0.7 * length, rad + 0.2 * PI);
-    drawMode2(x2, y2, n - 1, 0.7 * length, rad - 0.2 * PI);
-}
+//     drawMode2(x2, y2, n - 1, 0.7 * length, rad + 0.2 * PI);
+//     drawMode2(x2, y2, n - 1, 0.7 * length, rad - 0.2 * PI);
+// }
 
-void ofApp::drawMode3(float x, float y, float size, int n) {
-    if (n == 0) {
-        return;
-    }
+// void ofApp::drawMode3(float x, float y, float size, int n) {
+//     if (n == 0) {
+//         return;
+//     }
 
-    ofPoint a(x, y);
-    ofPoint b(x + size, y);
-    ofPoint c(x + size / 2, y + ((sqrt(3) * size) / 2));
+//     ofPoint a(x, y);
+//     ofPoint b(x + size, y);
+//     ofPoint c(x + size / 2, y + ((sqrt(3) * size) / 2));
 
-    ofDrawTriangle(a, b, c);
+//     ofDrawTriangle(a, b, c);
 
-    drawMode3(x, y, size / 2, n - 1);
-    drawMode3((a.x + b.x) / 2, (a.y + b.y) / 2, size / 2, n - 1);
-}
+//     drawMode3(x, y, size / 2, n - 1);
+//     drawMode3((a.x + b.x) / 2, (a.y + b.y) / 2, size / 2, n - 1);
+// }
 
-void ofApp::drawMode4(float x, float y, float n) {
-    if (n == 0) return;
+// void ofApp::drawMode4(float x, float y, float n) {
+//     if (n == 0) return;
 
-    float r = ofRandom(1);
+//     float r = ofRandom(1);
 
-    float px = ofMap(x, -2.1820, 2.6558, 0, ofGetWidth());
-    float py = ofMap(y, 0, 9.9983, ofGetHeight(), 0);
+//     float px = ofMap(x, -2.1820, 2.6558, 0, ofGetWidth());
+//     float py = ofMap(y, 0, 9.9983, ofGetHeight(), 0);
 
-    ofFill();
-    ofSetColor(ofColor::green);
-    ofDrawCircle(px, py, 0.6);
-    ofSetColor(ofColor::white);
+//     ofFill();
+//     ofSetColor(ofColor::green);
+//     ofDrawCircle(px, py, 0.6);
+//     ofSetColor(ofColor::white);
 
-    if (r < 0.01)
-        drawMode4(0, 0.16 * y, n - 1);
+//     if (r < 0.01)
+//         drawMode4(0, 0.16 * y, n - 1);
 
-    else if (r < 0.86)
-        drawMode4(0.85 * x + 0.04 * y, -0.04 * x + 0.85 * y + 1.6, n - 1);
+//     else if (r < 0.86)
+//         drawMode4(0.85 * x + 0.04 * y, -0.04 * x + 0.85 * y + 1.6, n - 1);
 
-    else if (r < 0.93)
-        drawMode4(0.2 * x - 0.26 * y, 0.23 * x + 0.22 * y + 1.6, n - 1);
+//     else if (r < 0.93)
+//         drawMode4(0.2 * x - 0.26 * y, 0.23 * x + 0.22 * y + 1.6, n - 1);
 
-    else
-        drawMode4(-0.15 * x + 0.28 * y, 0.26 * x + 0.24 * y + 0.44, n - 1);
-}
+//     else
+//         drawMode4(-0.15 * x + 0.28 * y, 0.26 * x + 0.24 * y + 0.44, n - 1);
+// }
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
 

@@ -7,6 +7,7 @@
 #include "Circle.hpp"
 #include "Tree.hpp"
 #include "SierpinskiTriangle.hpp"
+#include "BarnsleyFern.hpp"
 
 class ofApp : public ofBaseApp {
   private:
@@ -38,11 +39,12 @@ class ofApp : public ofBaseApp {
     Circle* circleFractal;
     Tree* treeFractal;
     SierpinskiTriangle* sierpinskiTriangleFractal;
+    BarnsleyFern* barnsleyFernFractal;
 
     //void drawMode1(float x, float y, float r, int n);
-    void drawMode2(float x, float y, int n, float length, float rad);
-    void drawMode3(float x, float y, float size, int n);
-    void drawMode4(float x, float y, float n);
+    // void drawMode2(float x, float y, int n, float length, float rad);
+    // void drawMode3(float x, float y, float size, int n);
+    // void drawMode4(float x, float y, float n);
 
     // int getNum(){return num;};
     // void setNum(int num){this->num = num;};
