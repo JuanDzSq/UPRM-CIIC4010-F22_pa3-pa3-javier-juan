@@ -4,7 +4,8 @@
 
 #include "ofMain.h"
 #include "SnowFlake.hpp"
-#include "Circle.h"
+#include "Circle.hpp"
+#include "Tree.hpp"
 
 class ofApp : public ofBaseApp {
   private:
@@ -34,6 +35,7 @@ class ofApp : public ofBaseApp {
     AbstractFractal* currentFractal;
     SnowFlake* snowflakeFractal;
     Circle* circleFractal;
+    Tree* treeFractal;
 
     //void drawMode1(float x, float y, float r, int n);
     void drawMode2(float x, float y, int n, float length, float rad);

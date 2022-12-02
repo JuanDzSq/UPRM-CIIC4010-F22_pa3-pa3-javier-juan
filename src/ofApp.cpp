@@ -1,6 +1,6 @@
 #include "ofApp.hpp"
 #include "SnowFlake.hpp"
-#include "Circle.h"
+#include "Circle.hpp"
 
 //--------------------------------------------------------------
 void ofApp::setup() {
@@ -8,6 +8,7 @@ void ofApp::setup() {
     fullscreen = 0;
     snowflakeFractal = new SnowFlake();
     circleFractal = new Circle();
+    treeFractal = new Tree();
     currentFractal = circleFractal;
 }
 
@@ -40,7 +41,7 @@ void ofApp::draw() {
     } break;
     case '2': {
         // Tree
-        float length = 0.31 * ofGetHeight();
+        //float length = 0.31 * ofGetHeight();
         // setNum(10 + getLevel());
         // if (getNum() < 0){
         //     setNum(0);
@@ -50,9 +51,11 @@ void ofApp::draw() {
         //     setNum(16);
         //     setLevel(6);
         // }
-        drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, /*getNum()*/ 10, length, 1.5 * PI);
-        drawMode2(ofGetWidth() * 19 / 20, ofGetHeight() - 20, 10, length / 2, 1.5 * PI);
-        drawMode2(ofGetWidth() / 20, ofGetHeight() - 20, 10, length / 2, 1.5 * PI);
+        // drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, getNum(), length, 1.5 * PI);
+        // drawMode2(ofGetWidth() * 19 / 20, ofGetHeight() - 20, 10, length / 2, 1.5 * PI);
+        // drawMode2(ofGetWidth() / 20, ofGetHeight() - 20, 10, length / 2, 1.5 * PI);
+        currentFractal = treeFractal;
+        currentFractal->draw();
     } break;
     case '3': {
         // Sierpinski Triangle
