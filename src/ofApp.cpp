@@ -86,7 +86,7 @@ void ofApp::draw() {
         //     setNum(18000);
         //     setLevel(8);
         // }
-        drawMode4(0, 0, /*getNum()*/ 1000);
+        drawMode4(0, 0, getNum());
     } break;
     case '5':
         // Koch SnowFlake

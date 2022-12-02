@@ -17,16 +17,16 @@ class Tree : public AbstractFractal {
     void draw(float x, float y, int n, float length, float rad);
 
     //Getters
-    float getLength() {return length;}
-    float getRad() {return rad;}
+    float getLength() {return length;};
+    float getRad() {return rad;};
     
     string getName(){return name;};
     int getLevel(){return level;};
     int getNum(){return num;};
 
     //Setters
-    void setLength(float length) {this->length = length;}
-    void setRad(float rad) {this->rad = rad;}
+    void setLength(float length) {this->length = length;};
+    void setRad(float rad) {this->rad = rad;};
 
     void setNum(int num){this->num = num;};
     void setLevel(int level){this->level = level;};

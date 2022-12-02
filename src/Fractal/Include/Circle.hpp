@@ -17,16 +17,16 @@ class Circle : public AbstractFractal {
     void draw(float x, float y, float r, int n);
 
     //Getters
-    float getRadius() {return r;}
-    float getAngle() {return angle;}
+    float getRadius() {return r;};
+    float getAngle() {return angle;};
     
     string getName(){return name;};
     int getLevel(){return level;};
     int getNum(){return num;};
 
     //Setters
-    void setRadius(float r) {this->r = r;}
-    void setAngle(float angle) {this->angle = angle;}
+    void setRadius(float r) {this->r = r;};
+    void setAngle(float angle) {this->angle = angle;};
 
     void setNum(int num){this->num = num;};
     void setLevel(int level){this->level = level;};
