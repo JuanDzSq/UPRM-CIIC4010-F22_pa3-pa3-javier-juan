@@ -146,6 +146,7 @@ void ofApp::draw() {
 
 //     drawMode3(x, y, size / 2, n - 1);
 //     drawMode3((a.x + b.x) / 2, (a.y + b.y) / 2, size / 2, n - 1);
+//     drawMode3((a.x + c.x) / 2, (((a.y + b.y) / 2) + c.y) / 2, size / 2, n - 1);
 // }
 
 // void ofApp::drawMode4(float x, float y, float n) {

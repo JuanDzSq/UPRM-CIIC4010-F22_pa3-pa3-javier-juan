@@ -40,4 +40,5 @@ void SierpinskiTriangle::draw(float x, float y, float size, int n) {
 
     draw(x, y, size / 2, n - 1);
     draw((a.x + b.x) / 2, (a.y + b.y) / 2, size / 2, n - 1);
+    draw((a.x + c.x) / 2, (((a.y + b.y) / 2) + c.y) / 2, size / 2, n - 1);
 }
