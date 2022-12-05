@@ -117,8 +117,8 @@ void ofApp::draw() {
         currentFractal->draw();
         break;
     }
-    ofDrawBitmapString(currentFractal->getName(), 10, 10);              //Testing Purposes
-    ofDrawBitmapString(ofToString(currentFractal->getLevel()), 10, 30); //Testing Purposes
+    ofDrawBitmapString("Current Fractal: " + currentFractal->getName(), 15, 20);              //Testing Purposes
+    ofDrawBitmapString("Depth Level: " + ofToString(currentFractal->getLevel()), 15, 40); //Testing Purposes
 }
 
 // void ofApp::drawMode1(float x, float y, float r, int n) {
