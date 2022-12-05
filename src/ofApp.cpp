@@ -20,8 +20,8 @@ void ofApp::setup() {
 //--------------------------------------------------------------
 void ofApp::update() {
     if (animation == true){                                                     //Animation 
-        counter += 1;
-        if (counter % 80 == 0){
+        timer += 1;
+        if (timer % 80 == 0){
             if (currentFractal->getIsMax() == true){
                 direction = "Backward";
             }
@@ -117,8 +117,10 @@ void ofApp::draw() {
         currentFractal->draw();
         break;
     }
-    ofDrawBitmapString("Current Fractal: " + currentFractal->getName(), 15, 20);              //Testing Purposes
-    ofDrawBitmapString("Depth Level: " + ofToString(currentFractal->getLevel()), 15, 40); //Testing Purposes
+
+    ofSetColor(ofColor::white);
+    ofDrawBitmapString("Current Fractal: " + currentFractal->getName(), 15, 20);                //Testing Purposes
+    ofDrawBitmapString("Depth Level: " + ofToString(currentFractal->getLevel()), 15, 40);       //Testing Purposes
 }
 
 // void ofApp::drawMode1(float x, float y, float r, int n) {

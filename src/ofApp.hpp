@@ -20,7 +20,7 @@ class ofApp : public ofBaseApp {
     //Animation 
     bool animation;
     string direction;
-    int counter;
+    int timer;
     bool keyLock;
 
   public:
