@@ -14,7 +14,7 @@ class Tree : public AbstractFractal {
     Tree(string name, int level, float length, float rad);
 
     void draw();
-    void draw(float x, float y, int n, float length, float rad);
+    void draw(float x, float y, int n, float length, float rad, vector <int> counter);
 
     //Getters
     float getLength() {return length;};
