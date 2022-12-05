@@ -8,13 +8,14 @@ class Circle : public AbstractFractal {
   private:
     float r;
     float angle = 0;
+    ofColor color;
     
   public:
     Circle();
     Circle(string name, int level, float r, float angle);
 
     void draw();
-    void draw(float x, float y, float r, int n);
+    void draw(float x, float y, float r, int n, ofColor color);
 
     //Getters
     float getRadius() {return r;};
