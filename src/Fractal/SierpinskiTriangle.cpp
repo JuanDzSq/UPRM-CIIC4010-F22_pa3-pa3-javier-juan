@@ -20,9 +20,9 @@ void SierpinskiTriangle::draw(){
         setNum(0);
         setLevel(0);
     }
-    else if (getNum() > 9){
-        setNum(9);
-        setLevel(9);
+    else if (getNum() > 8){
+        setNum(8);
+        setLevel(8);
     }
     draw((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, getNum());
 
@@ -32,7 +32,7 @@ void SierpinskiTriangle::draw(){
     else{
         min = false;
     }
-    if (getLevel() == 9){
+    if (getLevel() == 8){
         max = true;
     }
     else{

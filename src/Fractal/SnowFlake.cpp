@@ -28,9 +28,9 @@ void SnowFlake::draw() {
         setNum(0);
         setLevel(0);
     }
-    else if (getNum() > 7){
-        setNum(7);
-        setLevel(7);
+    else if (getNum() > 6){
+        setNum(6);
+        setLevel(6);
     }
     if(getNum() > 0){
         draw(getNum(), new SnowFlake(name, level, size, p1, p2));
@@ -44,7 +44,7 @@ void SnowFlake::draw() {
     else{
         min = false;
     }
-    if (getLevel() == 7){
+    if (getLevel() == 6){
         max = true;
     }
     else{
