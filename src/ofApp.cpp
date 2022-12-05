@@ -21,7 +21,7 @@ void ofApp::setup() {
 void ofApp::update() {
     if (animation == true){                                                     //Animation 
         counter += 1;
-        if (counter % 20 == 0){
+        if (counter % 80 == 0){
             if (currentFractal->getIsMax() == true){
                 direction = "Backward";
             }
