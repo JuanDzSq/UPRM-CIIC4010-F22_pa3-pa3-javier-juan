@@ -23,6 +23,8 @@ class Tree : public AbstractFractal {
     string getName(){return name;};
     int getLevel(){return level;};
     int getNum(){return num;};
+    bool getIsMax() {return max;}
+    bool getIsMin() {return min;}
 
     //Setters
     void setLength(float length) {this->length = length;};

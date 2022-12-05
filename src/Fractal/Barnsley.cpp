@@ -3,7 +3,7 @@
 BarnsleyFern::BarnsleyFern() {
     name = "BarnsleyFern";
     num = 0;
-    level = 0;
+    level = 10;
 }
 
 BarnsleyFern::BarnsleyFern(string name, int level) : AbstractFractal(name, level) {
@@ -12,16 +12,29 @@ BarnsleyFern::BarnsleyFern(string name, int level) : AbstractFractal(name, level
 }
 
 void BarnsleyFern::draw() {
-    setNum((getLevel() + 10) * 1000);
+    setNum((getLevel()) * 1000);
     if (getNum() < 0){
         setNum(0);
-        setLevel(-10);
+        setLevel(0);
     }
     else if (getNum() > 18000){
         setNum(18000);
-        setLevel(8);
+        setLevel(18);
     }
     draw(0, 0, getNum());
+
+    if (getLevel() == 1){
+        min = true;
+    }
+    else{
+        min = false;
+    }
+    if (getLevel() == 18){
+        max = true;
+    }
+    else{
+        max = false;
+    }
 }
 
 void BarnsleyFern::draw(float x, float y, float n) {

@@ -18,6 +18,8 @@ class BarnsleyFern : public AbstractFractal {
     string getName(){return name;};
     int getLevel(){return level;};
     int getNum(){return num;};
+    bool getIsMax() {return max;}
+    bool getIsMin() {return min;}
 
     //Setters
     void setNum(int num){this->num = num;};

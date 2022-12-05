@@ -3,7 +3,7 @@
 SnowFlake::SnowFlake() {
     name = "Snow Flake";
     num = 0;
-    level = 0;
+    level = 5;
 
     size = 0.74 * ofGetHeight();
 }
@@ -23,19 +23,32 @@ void SnowFlake::draw() {
     glm::vec2 p2 = {(ofGetWidth() + size) / 2, (ofGetHeight() - size * sin(PI / 3)) / 2 + 0.15 * size};
     glm::vec2 p3 = {ofGetWidth() / 2, (ofGetHeight() + size * sin(PI / 3)) / 2 + 0.15 * size};
 
-    setNum(getLevel() + 5);
+    setNum(getLevel());
     if (getNum() < 0){
         setNum(0);
-        setLevel(-5);
+        setLevel(0);
     }
-    else if (getNum() > 10){
-        setNum(10);
-        setLevel(5);
+    else if (getNum() > 7){
+        setNum(7);
+        setLevel(7);
     }
     if(getNum() > 0){
         draw(getNum(), new SnowFlake(name, level, size, p1, p2));
         draw(getNum(), new SnowFlake(name, level, size, p2, p3));
         draw(getNum(), new SnowFlake(name, level, size, p3, p1));
+    }
+
+    if (getLevel() == 1){
+        min = true;
+    }
+    else{
+        min = false;
+    }
+    if (getLevel() == 7){
+        max = true;
+    }
+    else{
+        max = false;
     }
 }
 void SnowFlake::draw(int n, SnowFlake *flake) {

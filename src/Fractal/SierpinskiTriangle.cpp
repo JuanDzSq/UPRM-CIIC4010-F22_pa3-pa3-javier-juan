@@ -3,7 +3,7 @@
 SierpinskiTriangle::SierpinskiTriangle() {
     name = "Sierpinski Triangle";
     num = 0;
-    level = 0;
+    level = 7;
 
     size = 0.88 * ofGetHeight();
 }
@@ -15,16 +15,29 @@ SierpinskiTriangle::SierpinskiTriangle(string name, int level, float size) : Abs
 }
 
 void SierpinskiTriangle::draw(){
-        setNum(7 + getLevel());
-        if (getNum() < 0){
-            setNum(0);
-            setLevel(-7);
-        }
-        else if (getNum() > 12){
-            setNum(12);
-            setLevel(5);
-        }
-        draw((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, getNum());
+    setNum(getLevel());
+    if (getNum() < 0){
+        setNum(0);
+        setLevel(0);
+    }
+    else if (getNum() > 9){
+        setNum(9);
+        setLevel(9);
+    }
+    draw((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, getNum());
+
+    if (getLevel() == 1){
+        min = true;
+    }
+    else{
+        min = false;
+    }
+    if (getLevel() == 9){
+        max = true;
+    }
+    else{
+        max = false;
+    }
 }
 
 void SierpinskiTriangle::draw(float x, float y, float size, int n) {

@@ -13,6 +13,8 @@ protected:
     string name;
     int level = 0;
     int num = 0;
+    bool max;
+    bool min;
 
 public:
     //Constructor
@@ -26,6 +28,8 @@ public:
     virtual string getName() { return name; }
     virtual int getLevel() { return level; }
     virtual int getNum() { return num; }
+    virtual bool getIsMax() {return max;}
+    virtual bool getIsMin() {return min;}
 
     //Setters
     virtual void setX(float x) { this->x = x; }

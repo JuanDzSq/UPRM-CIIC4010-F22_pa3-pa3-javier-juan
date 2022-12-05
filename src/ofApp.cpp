@@ -13,10 +13,30 @@ void ofApp::setup() {
     barnsleyFernFractal = new BarnsleyFern();
 
     currentFractal = circleFractal;
+    animation = false;
+    keyLock = false;
 }
 
 //--------------------------------------------------------------
 void ofApp::update() {
+    if (animation == true){                                                     //Animation 
+        counter += 1;
+        if (counter % 80 == 0){
+            if (currentFractal->getIsMax() == true){
+                direction = "Backward";
+            }
+            else if(currentFractal->getIsMin() == true){
+                direction = "Forward";
+            }
+            
+            if (direction == "Forward"){
+                currentFractal->setLevel(currentFractal->getLevel() + 1);
+            }
+            else if (direction == "Backward"){
+                currentFractal->setLevel(currentFractal->getLevel() - 1);
+            }
+        }
+    }
 }
 
 //--------------------------------------------------------------
@@ -176,20 +196,39 @@ void ofApp::draw() {
 // }
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
-
-    if (key >= '1' && key <= '5'){
-        mode = key;
-        // currentFractal->setLevel(0);
-        // currentFractal->setNum(0);
-    }
-    else if (key == OF_KEY_F11)
+    if (key == OF_KEY_F11){
         ofSetFullscreen(fullscreen++ % 2 == 0);
-    else if (key == OF_KEY_ESC)
+    }
+    else if (key == OF_KEY_ESC){
         ofSetFullscreen(false);
-    else if (key == OF_KEY_LEFT)
-        currentFractal->setLevel(currentFractal->getLevel() - 1);
-    else if(key == OF_KEY_RIGHT)
-        currentFractal->setLevel(currentFractal->getLevel() + 1);
+    }
+
+    if (key == ' '){                                                        //keyLock for animation
+        if (keyLock == false){
+            currentFractal->setLevel(1);
+            direction = "Forward";
+            animation = true;
+            keyLock = true;
+        }
+        else{
+            animation = false;
+            keyLock = false;
+        }
+    }
+
+    if (keyLock != true){                                                   //keyLock that will open when not in the animation state
+        if (key >= '1' && key <= '5'){
+            mode = key;
+            // currentFractal->setLevel(0);
+            // currentFractal->setNum(0);
+        }
+        if (key == OF_KEY_LEFT){
+            currentFractal->setLevel(currentFractal->getLevel() - 1);
+        }
+        else if(key == OF_KEY_RIGHT){
+            currentFractal->setLevel(currentFractal->getLevel() + 1);
+        }
+    }
 }
 
 //--------------------------------------------------------------
