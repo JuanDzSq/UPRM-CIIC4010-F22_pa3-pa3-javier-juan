@@ -17,6 +17,12 @@ class ofApp : public ofBaseApp {
     // int level = 0;
     // int num;
 
+    //Animation 
+    bool animation;
+    string direction;
+    int counter;
+    bool keyLock;
+
   public:
     void setup();
     void update();

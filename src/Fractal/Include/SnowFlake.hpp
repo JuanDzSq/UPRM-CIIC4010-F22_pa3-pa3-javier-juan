@@ -37,6 +37,8 @@ class SnowFlake : public AbstractFractal {
     string getName(){return name;};
     int getLevel(){return level;};
     int getNum(){return num;};
+    bool getIsMax() {return max;}
+    bool getIsMin() {return min;}
     
     //Setters
     void setStart(glm::vec2 start) { this->start = start; };

@@ -3,7 +3,7 @@
 Tree::Tree() {
     name = "Tree";
     num = 0;
-    level = 0;
+    level = 10;
     
     length = 0.31 * ofGetHeight();
     rad = 1.5 * PI;
@@ -17,18 +17,32 @@ Tree::Tree(string name, int level, float length, float rad) : AbstractFractal(na
 }
 
 void Tree::draw(){
-    setNum(10 + getLevel());
+    setNum(getLevel());
     if (getNum() < 0){
         setNum(0);
-        setLevel(-10);
+        setLevel(0);
     }
-    else if (getNum() > 16){
-        setNum(16);
-        setLevel(6);
+    else if (getNum() > 15){
+        setNum(15);
+        setLevel(15);
     }
+    
     draw(ofGetWidth() / 2, ofGetHeight() - 20, getNum(), length, rad);
     draw(ofGetWidth() * 16 / 17, ofGetHeight() - 20, getNum(), length / 2, rad);
     draw(ofGetWidth() / 17, ofGetHeight() - 20, getNum(), length / 2, rad);
+
+    if (getLevel() == 1){
+        min = true;
+    }
+    else{
+        min = false;
+    }
+    if (getLevel() == 15){
+        max = true;
+    }
+    else{
+        max = false;
+    }
 }
 
 void Tree::draw(float x, float y, int n, float length, float rad) {

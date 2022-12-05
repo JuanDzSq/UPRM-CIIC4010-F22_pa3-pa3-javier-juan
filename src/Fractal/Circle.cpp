@@ -3,7 +3,7 @@
 Circle::Circle() {
     name = "Circle";
     num = 0;
-    level = 0;
+    level = 3;
 
     r = 0.31 * ofGetHeight();
 }
@@ -17,16 +17,29 @@ Circle::Circle(string name, int level, float r, float angle) : AbstractFractal(n
 
 void Circle::draw(){
     angle += 0.01;
-    setNum(3 + getLevel());
+    setNum(getLevel());
     if (getNum() < 0){
         setNum(0);
-        setLevel(-3);
+        setLevel(0);
     }
     else if (getNum() > 6){
         setNum(6);
-        setLevel(3);
+        setLevel(6);
     }
     draw(ofGetWidth() / 2, ofGetHeight() / 2, r, getNum());
+
+    if (getLevel() == 1){
+        min = true;
+    }
+    else{
+        min = false;
+    }
+    if (getLevel() == 6){
+        max = true;
+    }
+    else{
+        max = false;
+    }
 }
 
 void Circle::draw(float x, float y, float r, int n) {
