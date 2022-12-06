@@ -11,8 +11,10 @@ void ofApp::setup() {
     treeFractal = new Tree();
     sierpinskiTriangleFractal = new SierpinskiTriangle();
     barnsleyFernFractal = new BarnsleyFern();
+    newFractal = new NewFractal();
 
     currentFractal = circleFractal;
+    font.load("Sketch 3D.otf", 40);
 }
 
 //--------------------------------------------------------------
@@ -91,14 +93,20 @@ void ofApp::draw() {
         currentFractal = barnsleyFernFractal;
         currentFractal->draw();
     } break;
-    case '5':
+    case '5': {
         // Koch SnowFlake
         currentFractal = snowFlakeFractal;
         currentFractal->draw();
-        break;
+    } break;
+    case '6':
+        currentFractal = newFractal;
+        currentFractal->draw();
     }
-    ofDrawBitmapString(currentFractal->getName(), 10, 10);              //Testing Purposes
-    ofDrawBitmapString(ofToString(currentFractal->getLevel()), 10, 30); //Testing Purposes
+    // ofDrawBitmapString(currentFractal->getName(), 10, 10);              //Testing Purposes
+    // ofDrawBitmapString(ofToString(currentFractal->getLevel()), 10, 30); //Testing Purposes
+
+    font.drawString(currentFractal->getName(), 10, 50);              //Testing Purposes
+    font.drawString(ofToString(currentFractal->getLevel()), 10, 110);
 }
 
 // void ofApp::drawMode1(float x, float y, float r, int n) {
@@ -177,7 +185,7 @@ void ofApp::draw() {
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
 
-    if (key >= '1' && key <= '5'){
+    if (key >= '1' && key <= '6'){
         mode = key;
         // currentFractal->setLevel(0);
         // currentFractal->setNum(0);

@@ -8,6 +8,7 @@
 #include "Tree.hpp"
 #include "SierpinskiTriangle.hpp"
 #include "BarnsleyFern.hpp"
+#include "NewFractal.hpp"
 
 class ofApp : public ofBaseApp {
   private:
@@ -40,6 +41,10 @@ class ofApp : public ofBaseApp {
     Tree* treeFractal;
     SierpinskiTriangle* sierpinskiTriangleFractal;
     BarnsleyFern* barnsleyFernFractal;
+    NewFractal* newFractal;
+
+    ofTrueTypeFont font;
+    
 
     //void drawMode1(float x, float y, float r, int n);
     // void drawMode2(float x, float y, int n, float length, float rad);
