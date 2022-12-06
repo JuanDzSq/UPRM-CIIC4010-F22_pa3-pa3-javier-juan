@@ -11,8 +11,10 @@ void ofApp::setup() {
     treeFractal = new Tree();
     sierpinskiTriangleFractal = new SierpinskiTriangle();
     barnsleyFernFractal = new BarnsleyFern();
+    newFractal = new NewFractal();
 
     currentFractal = circleFractal;
+    font.load("Sketch 3D.otf", 40);
     animation = false;
     keyLock = false;
 }
@@ -111,16 +113,22 @@ void ofApp::draw() {
         currentFractal = barnsleyFernFractal;
         currentFractal->draw();
     } break;
-    case '5':
+    case '5': {
         // Koch SnowFlake
         currentFractal = snowFlakeFractal;
         currentFractal->draw();
-        break;
+    } break;
+    case '6':
+        currentFractal = newFractal;
+        currentFractal->draw();
     }
 
     ofSetColor(ofColor::white);
-    ofDrawBitmapString("Current Fractal: " + currentFractal->getName(), 15, 20);                //Testing Purposes
-    ofDrawBitmapString("Depth Level: " + ofToString(currentFractal->getLevel()), 15, 40);       //Testing Purposes
+    // ofDrawBitmapString("Current Fractal: " + currentFractal->getName(), 15, 20);                //Testing Purposes
+    // ofDrawBitmapString("Depth Level: " + ofToString(currentFractal->getLevel()), 15, 40);       //Testing Purposes
+
+    font.drawString(currentFractal->getName(), 10, 50);              //Testing Purposes
+    font.drawString(ofToString(currentFractal->getLevel()), 10, 110);
 }
 
 // void ofApp::drawMode1(float x, float y, float r, int n) {
