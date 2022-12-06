@@ -127,8 +127,8 @@ void ofApp::draw() {
     // ofDrawBitmapString("Current Fractal: " + currentFractal->getName(), 15, 20);                //Testing Purposes
     // ofDrawBitmapString("Depth Level: " + ofToString(currentFractal->getLevel()), 15, 40);       //Testing Purposes
 
-    font.drawString(currentFractal->getName(), 10, 50);              //Testing Purposes
-    font.drawString(ofToString(currentFractal->getLevel()), 10, 110);
+    font.drawString("Current Fractal: " + currentFractal->getName(), 10, 50);              //Testing Purposes
+    font.drawString("Depth Level: " + ofToString(currentFractal->getLevel()), 10, 110);
 }
 
 // void ofApp::drawMode1(float x, float y, float r, int n) {
@@ -227,7 +227,7 @@ void ofApp::keyPressed(int key) {
     }
 
     if (keyLock != true){                                                   //keyLock that will open when not in the animation state
-        if (key >= '1' && key <= '5'){
+        if (key >= '1' && key <= '6'){
             mode = key;
             // currentFractal->setLevel(0);
             // currentFractal->setNum(0);

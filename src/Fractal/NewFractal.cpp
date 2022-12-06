@@ -3,7 +3,7 @@
 NewFractal::NewFractal() {
     name = "Squared Diamond";
     num = 0;
-    level = 0;
+    level = 10;
 
     size = 0.40 * ofGetHeight();
 }
@@ -15,14 +15,14 @@ NewFractal::NewFractal(string name, int level, float size) : AbstractFractal(nam
 }
 
 void NewFractal::draw(){
-    setNum(7 + getLevel());
+    setNum(getLevel());
         if (getNum() < 0){
             setNum(0);
-            setLevel(-7);
+            setLevel(0);
         }
         else if (getNum() > 20){
             setNum(20);
-            setLevel(13);
+            setLevel(20);
         }
         draw((ofGetWidth())/2, ofGetHeight() / 4 - 0.4 * size, size, getNum(), 0);
 }
