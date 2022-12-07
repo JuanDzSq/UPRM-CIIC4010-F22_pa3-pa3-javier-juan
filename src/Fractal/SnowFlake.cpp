@@ -9,16 +9,12 @@ SnowFlake::SnowFlake() {
 }
 
 SnowFlake::SnowFlake(string name, int level, float size, glm::vec2 start, glm::vec2 end) : AbstractFractal(name, level) {
-    this->name = name;
-    this->level = level;
     this->size = size;
     this->start = start;
     this->end = end;
 }
 
 void SnowFlake::draw() {
-    //float size = 0.74 * ofGetHeight();
-
     glm::vec2 p1 = {(ofGetWidth() - size) / 2, (ofGetHeight() - size * sin(PI / 3)) / 2 + 0.15 * size};
     glm::vec2 p2 = {(ofGetWidth() + size) / 2, (ofGetHeight() - size * sin(PI / 3)) / 2 + 0.15 * size};
     glm::vec2 p3 = {ofGetWidth() / 2, (ofGetHeight() + size * sin(PI / 3)) / 2 + 0.15 * size};

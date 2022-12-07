@@ -7,8 +7,6 @@ BarnsleyFern::BarnsleyFern() {
 }
 
 BarnsleyFern::BarnsleyFern(string name, int level) : AbstractFractal(name, level) {
-    this->name = name;
-    this->level = level;
 }
 
 void BarnsleyFern::draw() {

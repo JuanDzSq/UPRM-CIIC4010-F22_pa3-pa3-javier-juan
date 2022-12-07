@@ -18,15 +18,6 @@ class SierpinskiTriangle : public AbstractFractal {
     //Getters
     float getSize() {return size;};
 
-    string getName(){return name;};
-    int getLevel(){return level;};
-    int getNum(){return num;};
-    bool getIsMax() {return max;}
-    bool getIsMin() {return min;}
-
     //Setters
     void setSize(float size) {this->size = size;};
-
-    void setNum(int num){this->num = num;};
-    void setLevel(int level){this->level = level;};
 };

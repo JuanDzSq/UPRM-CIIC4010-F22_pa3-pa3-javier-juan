@@ -13,10 +13,7 @@
 class ofApp : public ofBaseApp {
   private:
     char mode = '1';
-    //float angle = 0;
     unsigned int fullscreen;
-    // int level = 0;
-    // int num;
 
     //Animation 
     bool animation;
@@ -54,14 +51,4 @@ class ofApp : public ofBaseApp {
 
     ofTrueTypeFont font;
     
-
-    //void drawMode1(float x, float y, float r, int n);
-    // void drawMode2(float x, float y, int n, float length, float rad);
-    // void drawMode3(float x, float y, float size, int n);
-    // void drawMode4(float x, float y, float n);
-
-    // int getNum(){return num;};
-    // void setNum(int num){this->num = num;};
-    //int getLevel(){return level;};
-    //void setLevel(int level){this->level = level;};
 };

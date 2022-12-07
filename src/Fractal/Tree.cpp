@@ -10,8 +10,6 @@ Tree::Tree() {
 }
 
 Tree::Tree(string name, int level, float length, float rad) : AbstractFractal(name, level) {
-    this->name = name;
-    this->level = level;
     this->length = length;
     this->rad = rad;
 }
@@ -29,8 +27,8 @@ void Tree::draw(){
     }
     
     draw(ofGetWidth() / 2, ofGetHeight() - 20, getNum(), length, rad, counter);
-    draw(ofGetWidth() * 16 / 17, ofGetHeight() - 20, getNum(), length / 2, rad, counter);
-    draw(ofGetWidth() / 17, ofGetHeight() - 20, getNum(), length / 2, rad, counter);
+    draw(ofGetWidth() / 4, ofGetHeight() - 20, getNum(), length / 4, rad, counter);
+    draw(ofGetWidth() *3/4, ofGetHeight() - 20, getNum(), length / 4, rad, counter);
 
     if (getLevel() == 1){
         min = true;
@@ -69,7 +67,6 @@ void Tree::draw(float x, float y, int n, float length, float rad, vector <int> c
     
     ofDrawLine(x, y, x2, y2);
 
-    //ofSetColor(ofColor::white);
     draw(x2, y2, n - 1, 0.7 * length, rad + 0.2 * PI, counter);
     draw(x2, y2, n - 1, 0.7 * length, rad - 0.2 * PI, counter);
 }

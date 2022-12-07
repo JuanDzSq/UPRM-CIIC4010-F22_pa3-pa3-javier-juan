@@ -9,8 +9,6 @@ SierpinskiTriangle::SierpinskiTriangle() {
 }
 
 SierpinskiTriangle::SierpinskiTriangle(string name, int level, float size) : AbstractFractal(name, level) {
-    this->name = name;
-    this->level = level;
     this->size = size;
 }
 
