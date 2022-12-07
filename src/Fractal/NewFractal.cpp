@@ -16,15 +16,28 @@ NewFractal::NewFractal(string name, int level, float size) : AbstractFractal(nam
 
 void NewFractal::draw(){
     setNum(getLevel());
-        if (getNum() < 0){
-            setNum(0);
-            setLevel(0);
-        }
-        else if (getNum() > 20){
-            setNum(20);
-            setLevel(20);
-        }
-        draw((ofGetWidth())/2, ofGetHeight() / 4 - 0.4 * size, size, getNum(), 0);
+    if (getNum() < 0){
+        setNum(0);
+        setLevel(0);
+    }
+    else if (getNum() > 20){
+        setNum(20);
+        setLevel(20);
+    }
+    draw((ofGetWidth())/2, ofGetHeight() / 4 - 0.4 * size, size, getNum(), 0);
+
+    if (getLevel() == 1){
+        min = true;
+    }
+    else{
+        min = false;
+    }
+    if (getLevel() == 20){
+        max = true;
+    }
+    else{
+        max = false;
+    }
 }
 
 void NewFractal::draw(float x, float y, float size, int n, float place) {
