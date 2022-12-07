@@ -22,9 +22,9 @@ void Tree::draw(){
         setNum(0);
         setLevel(0);
     }
-    else if (getNum() > 15){
-        setNum(15);
-        setLevel(15);
+    else if (getNum() > 14){
+        setNum(14);
+        setLevel(14);
     }
     
     draw(ofGetWidth() / 2, ofGetHeight() - 20, getNum(), length, rad, counter);
@@ -38,7 +38,7 @@ void Tree::draw(){
     else{
         min = false;
     }
-    if (getLevel() == 15){
+    if (getLevel() == 14){
         max = true;
     }
     else{
