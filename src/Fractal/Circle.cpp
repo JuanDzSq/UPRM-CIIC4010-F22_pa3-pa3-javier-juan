@@ -46,13 +46,13 @@ void Circle::draw(float x, float y, float r, int n) {
     if (n == 0) return;
 
     if (n <= 2){
-        ofSetColor(ofColor::paleGoldenRod);
+        ofSetColor(ofColor::yellow);
     }
     else if (n <= 4){
-        ofSetColor(ofColor::skyBlue);
+        ofSetColor(ofColor::red);
     }
     else{
-        ofSetColor(ofColor::pink);
+        ofSetColor(ofColor::green);
     }
     int delta = r * 0.35;
     ofDrawCircle(x, y, r);

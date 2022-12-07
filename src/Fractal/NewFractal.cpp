@@ -32,6 +32,16 @@ void NewFractal::draw(float x, float y, float size, int n, float place) {
         return;
     }
 
+    if (n <= 1){
+        ofSetColor(ofColor::lightBlue);
+    }
+    else if (n <= 4){
+        ofSetColor(ofColor::yellow);
+    }
+    else{
+        ofSetColor(ofColor::violet);
+    }
+
     // ofPoint a(x, y);
     // ofPoint b(x + size, y);
     // ofPoint c(x + size / 2, y + ((sqrt(3) * size) / 2));
@@ -97,7 +107,6 @@ void NewFractal::draw(float x, float y, float size, int n, float place) {
     // ofDrawTriangle(g, h, i);
     // ofDrawTriangle(j, k, l);
     // ofDrawTriangle(m, o, p);
-
     draw(x, y + 20, size - 20, n - 1, place);
     // draw((a.x + b.x) / 2, (a.y + b.y) / 2, size / 2, n - 1);
     // draw((a.x + c.x) / 2, (((a.y + b.y) / 2) + c.y) / 2, size / 2, n - 1);
