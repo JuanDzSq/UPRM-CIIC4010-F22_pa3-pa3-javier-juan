@@ -40,8 +40,11 @@ class ofApp : public ofBaseApp {
     void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
+    
+    vector <Fractal*> fractalList = {NULL};    //Starts with NULL so that the indexes for the fractals are 1-6
+    Fractal* currentFractal;
 
-    AbstractFractal* currentFractal;
+    // Fractals
     SnowFlake* snowFlakeFractal;
     Circle* circleFractal;
     Tree* treeFractal;

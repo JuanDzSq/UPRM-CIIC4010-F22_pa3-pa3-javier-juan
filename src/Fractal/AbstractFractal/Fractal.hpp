@@ -11,6 +11,8 @@ class Fractal {
         virtual string getName() = 0;
         virtual int getLevel() = 0;
         virtual int getNum() = 0;
+        virtual bool getIsMax() = 0;
+        virtual bool getIsMin() = 0;
 
         //Setters
         virtual void setLevel(int level) = 0;

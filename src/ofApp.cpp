@@ -6,6 +6,7 @@
 void ofApp::setup() {
     ofSetEscapeQuitsApp(false);
     fullscreen = 0;
+
     snowFlakeFractal = new SnowFlake();
     circleFractal = new Circle();
     treeFractal = new Tree();
@@ -13,7 +14,8 @@ void ofApp::setup() {
     barnsleyFernFractal = new BarnsleyFern();
     newFractal = new NewFractal();
 
-    currentFractal = circleFractal;
+    fractalList.insert(fractalList.end(), {circleFractal, treeFractal, sierpinskiTriangleFractal, barnsleyFernFractal, snowFlakeFractal, newFractal});
+
     font.load("Sketch 3D.otf", 40);
     animation = false;
     keyLock = false;
@@ -61,7 +63,7 @@ void ofApp::draw() {
         //     setLevel(3);
         // }
         // drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, r, getNum());
-        currentFractal = circleFractal;
+        currentFractal = fractalList.at(1);
         currentFractal->draw();
     } break;
     case '2': {
@@ -79,7 +81,7 @@ void ofApp::draw() {
         // drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, getNum(), length, 1.5 * PI);
         // drawMode2(ofGetWidth() * 19 / 20, ofGetHeight() - 20, 10, length / 2, 1.5 * PI);
         // drawMode2(ofGetWidth() / 20, ofGetHeight() - 20, 10, length / 2, 1.5 * PI);
-        currentFractal = treeFractal;
+        currentFractal = fractalList.at(2);
         currentFractal->draw();
     } break;
     case '3': {
@@ -95,7 +97,7 @@ void ofApp::draw() {
         //     setLevel(5);
         // }
         // drawMode3((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, getNum());
-        currentFractal = sierpinskiTriangleFractal;
+        currentFractal = fractalList.at(3);
         currentFractal->draw();
     } break;
     case '4': {
@@ -110,16 +112,17 @@ void ofApp::draw() {
         //     setLevel(8);
         // }
         // drawMode4(0, 0, getNum());
-        currentFractal = barnsleyFernFractal;
+        currentFractal = fractalList.at(4);
         currentFractal->draw();
     } break;
     case '5': {
         // Koch SnowFlake
-        currentFractal = snowFlakeFractal;
+        currentFractal = fractalList.at(5);
         currentFractal->draw();
     } break;
     case '6':
-        currentFractal = newFractal;
+        // New Fractal
+        currentFractal = fractalList.at(6);
         currentFractal->draw();
     }
 
