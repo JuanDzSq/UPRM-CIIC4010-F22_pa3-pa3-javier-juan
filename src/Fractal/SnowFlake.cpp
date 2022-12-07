@@ -17,7 +17,6 @@ SnowFlake::SnowFlake(string name, int level, float size, glm::vec2 start, glm::v
 }
 
 void SnowFlake::draw() {
-    //float size = 0.74 * ofGetHeight();
 
     glm::vec2 p1 = {(ofGetWidth() - size) / 2, (ofGetHeight() - size * sin(PI / 3)) / 2 + 0.15 * size};
     glm::vec2 p2 = {(ofGetWidth() + size) / 2, (ofGetHeight() - size * sin(PI / 3)) / 2 + 0.15 * size};

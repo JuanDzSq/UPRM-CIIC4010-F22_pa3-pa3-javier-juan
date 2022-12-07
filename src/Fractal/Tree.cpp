@@ -69,7 +69,6 @@ void Tree::draw(float x, float y, int n, float length, float rad, vector <int> c
     
     ofDrawLine(x, y, x2, y2);
 
-    //ofSetColor(ofColor::white);
     draw(x2, y2, n - 1, 0.7 * length, rad + 0.2 * PI, counter);
     draw(x2, y2, n - 1, 0.7 * length, rad - 0.2 * PI, counter);
 }
