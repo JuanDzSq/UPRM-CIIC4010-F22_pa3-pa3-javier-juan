@@ -19,17 +19,8 @@ class Circle : public AbstractFractal {
     //Getters
     float getRadius() {return r;};
     float getAngle() {return angle;};
-    
-    string getName(){return name;};
-    int getLevel(){return level;};
-    int getNum(){return num;};
-    bool getIsMax() {return max;}
-    bool getIsMin() {return min;}
 
     //Setters
     void setRadius(float r) {this->r = r;};
     void setAngle(float angle) {this->angle = angle;};
-
-    void setNum(int num){this->num = num;};
-    void setLevel(int level){this->level = level;};
 };

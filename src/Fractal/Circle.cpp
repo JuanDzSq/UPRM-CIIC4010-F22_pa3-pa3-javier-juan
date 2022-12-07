@@ -9,8 +9,6 @@ Circle::Circle() {
 }
 
 Circle::Circle(string name, int level, float r, float angle) : AbstractFractal(name, level) {
-    this->name = name;
-    this->level = level;
     this->r = r;
     this->angle = angle;
 }

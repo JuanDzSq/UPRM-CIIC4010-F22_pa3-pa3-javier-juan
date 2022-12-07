@@ -9,8 +9,6 @@ SnowFlake::SnowFlake() {
 }
 
 SnowFlake::SnowFlake(string name, int level, float size, glm::vec2 start, glm::vec2 end) : AbstractFractal(name, level) {
-    this->name = name;
-    this->level = level;
     this->size = size;
     this->start = start;
     this->end = end;
