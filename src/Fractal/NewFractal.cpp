@@ -13,6 +13,7 @@ NewFractal::NewFractal(string name, int level, float size) : AbstractFractal(nam
 }
 
 void NewFractal::draw(){
+    //Increase and decrease levels of the fractal
     setNum(getLevel());
     if (getNum() < 0){
         setNum(0);
@@ -24,6 +25,7 @@ void NewFractal::draw(){
     }
     draw((ofGetWidth())/2, ofGetHeight() / 4 - 0.4 * size, size, getNum(), 0);
 
+    //determines the minimum and maximun of the level
     if (getLevel() == 1){
         min = true;
     }
@@ -39,10 +41,11 @@ void NewFractal::draw(){
 }
 
 void NewFractal::draw(float x, float y, float size, int n, float place) {
+    //stops when the n is 0
     if (n == 0) {
         return;
     }
-
+    //changes color of the levels
     if (n <= 1){
         ofSetColor(ofColor::lightBlue);
     }
@@ -53,19 +56,20 @@ void NewFractal::draw(float x, float y, float size, int n, float place) {
         ofSetColor(ofColor::violet);
     }
 
-
+    //place decides where to start to draw the lines, if place is 0 it will draw a diamond and if place is size it will draw a square
     if( place == 0){
         place = size;
     }
     else{
         place = 0;
     }
-
+    //draws the lines to draw the shape
     ofDrawLine(x-place, y, (x + size), ((y + size)-place));
     ofDrawLine(x-place, y, (x - size),((y + size)+place));
     ofDrawLine((x - size), ((y + size)+place), (x+place), (y + (size*2)));
     ofDrawLine((x + size), ((y + size)-place), (x+place), (y + (size*2)));
 
+    //updates the parameters of the recursion
     draw(x, y + 20, size - 20, n - 1, place);
 
 }

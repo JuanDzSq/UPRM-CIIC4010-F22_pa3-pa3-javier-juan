@@ -16,6 +16,7 @@ Tree::Tree(string name, int level, float length, float rad) : AbstractFractal(na
 
 void Tree::draw(){
     vector <int> counter = {0, 0};
+    //Increase and decrease levels of the fractal
     setNum(getLevel());
     if (getNum() < 0){
         setNum(0);
@@ -30,6 +31,7 @@ void Tree::draw(){
     draw(ofGetWidth() / 4, ofGetHeight() - 20, getNum(), length / 4, rad, counter);
     draw(ofGetWidth() *3/4, ofGetHeight() - 20, getNum(), length / 4, rad, counter);
 
+    //determines the minimum and maximun of the level
     if (getLevel() == 1){
         min = true;
     }
@@ -45,11 +47,13 @@ void Tree::draw(){
 }
 
 void Tree::draw(float x, float y, int n, float length, float rad, vector <int> counter) {
+    //stops when the n is 0
     if (n == 0) return;
 
     float x2 = x + length * cos(rad);
     float y2 = y + length * sin(rad);
 
+    //changes the colors of the levels
     ofSetColor(ofColor::green);
     if (n >= 4 && counter.at(0) <= 7){
         ofSetColor(ofColor::yellow);

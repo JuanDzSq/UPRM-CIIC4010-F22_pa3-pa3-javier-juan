@@ -20,6 +20,7 @@ void SnowFlake::draw() {
     glm::vec2 p2 = {(ofGetWidth() + size) / 2, (ofGetHeight() - size * sin(PI / 3)) / 2 + 0.15 * size};
     glm::vec2 p3 = {ofGetWidth() / 2, (ofGetHeight() + size * sin(PI / 3)) / 2 + 0.15 * size};
 
+    //Increase and decrease levels of the fractal
     setNum(getLevel());
     if (getNum() < 0){
         setNum(0);
@@ -34,7 +35,7 @@ void SnowFlake::draw() {
         draw(getNum(), new SnowFlake(name, level, size, p2, p3));
         draw(getNum(), new SnowFlake(name, level, size, p3, p1));
     }
-
+    //determines the minimum and maximun of the level
     if (getLevel() == 1){
         min = true;
     }

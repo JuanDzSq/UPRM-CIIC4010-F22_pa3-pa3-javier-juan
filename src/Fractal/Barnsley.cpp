@@ -10,6 +10,7 @@ BarnsleyFern::BarnsleyFern(string name, int level) : AbstractFractal(name, level
 }
 
 void BarnsleyFern::draw() {
+     //Increase and decrease levels of the fractal
     setNum((getLevel()) * 1000);
     if (getNum() < 0){
         setNum(0);
@@ -21,6 +22,7 @@ void BarnsleyFern::draw() {
     }
     draw(0, 0, getNum());
 
+    //determines the minimum and maximun of the level
     if (getLevel() == 1){
         min = true;
     }
@@ -36,12 +38,14 @@ void BarnsleyFern::draw() {
 }
 
 void BarnsleyFern::draw(float x, float y, float n) {
+    //stops when the n is 0
     if (n == 0) return;
 
     float r = ofRandom(1);
     float px = ofMap(x, -2.1820, 2.6558, 0, ofGetWidth());
     float py = ofMap(y, 0, 9.9983, ofGetHeight(), 0);
 
+    //changes the color of the levels
     vector <ofColor> color = {ofColor::green, ofColor::blue, ofColor::white};
     if (n < 6000){
         ofSetColor(color.at(0));

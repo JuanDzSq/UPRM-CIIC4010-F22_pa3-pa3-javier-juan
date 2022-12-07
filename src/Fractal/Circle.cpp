@@ -15,6 +15,7 @@ Circle::Circle(string name, int level, float r, float angle) : AbstractFractal(n
 
 void Circle::draw(){
     angle += 0.01;
+     //Increase and decrease levels of the fractal
     setNum(getLevel());
     if (getNum() < 0){
         setNum(0);
@@ -26,6 +27,7 @@ void Circle::draw(){
     }
     draw(ofGetWidth() / 2, ofGetHeight() / 2, r, getNum());
 
+    //determines the minimum and maximun of the level
     if (getLevel() == 1){
         min = true;
     }
@@ -41,8 +43,10 @@ void Circle::draw(){
 }
 
 void Circle::draw(float x, float y, float r, int n) {
+    //stops when the n is 0
     if (n == 0) return;
-
+    
+    //changes colors of the levels
     if (n <= 2){
         ofSetColor(ofColor::yellow);
     }
