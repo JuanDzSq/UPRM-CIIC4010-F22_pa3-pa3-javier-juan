@@ -16,16 +16,17 @@ void ofApp::setup() {
 
     fractalList.insert(fractalList.end(), {circleFractal, treeFractal, sierpinskiTriangleFractal, barnsleyFernFractal, snowFlakeFractal, newFractal});
 
-    font.load("Sketch 3D.otf", 40);
+    font.load("Sketch 3D.otf", 30);
     animation = false;
-    keyLock = false;
+    speed = 2;
+    speedOptions = {160, 120, 80, 50, 30};
 }
 
 //--------------------------------------------------------------
 void ofApp::update() {
     if (animation == true){                                                     //Animation 
         timer += 1;
-        if (timer % 80 == 0){
+        if (timer % speedOptions.at(speed) == 0){                               // The speed and speedOptions controll the speed of the animation
             if (currentFractal->getIsMax() == true){
                 direction = "Backward";
             }
@@ -84,6 +85,11 @@ void ofApp::draw() {
 
     font.drawString("Current Fractal: " + currentFractal->getName(), 10, 50);              // Shows Fractal Name
     font.drawString("Depth Level: " + ofToString(currentFractal->getLevel()), 10, 110);    // Shows Fractal Level
+
+    if(animation == true){
+        font.drawString("Animation Speed: " + to_string(speed - 2), 10, 170);               // Shows animation speed
+        ofDrawBitmapString("Press the arrow keys to \nchange animation speed", 10, 190);
+    }
 }
 
 //--------------------------------------------------------------
@@ -95,20 +101,19 @@ void ofApp::keyPressed(int key) {
         ofSetFullscreen(false);
     }
 
-    if (key == ' '){                                                        //keyLock for animation
-        if (keyLock == false){
+    if (key == ' '){                                                        // Pressing Space will switch between animation and no animation
+        if (animation == false){
             currentFractal->setLevel(1);
             direction = "Forward";
             animation = true;
-            keyLock = true;
         }
         else{
             animation = false;
-            keyLock = false;
+            speed = 2;
         }
     }
 
-    if (keyLock != true){                                                   //keyLock that will open when not in the animation state
+    if (animation == false){                                                   // While in animation, switching modes and levels is disabled
         if (key >= '1' && key <= '6'){
             mode = key;
         }
@@ -117,6 +122,19 @@ void ofApp::keyPressed(int key) {
         }
         else if(key == OF_KEY_RIGHT){
             currentFractal->setLevel(currentFractal->getLevel() + 1);
+        }
+    }
+    else {   
+        // Animation speed change using arrow keys while in an animation state      
+        if (key == OF_KEY_LEFT){
+            if (speed > 0){
+                speed--;
+            }
+        }
+        else if(key == OF_KEY_RIGHT){
+            if(speed < speedOptions.size() - 1){
+                speed++;
+            }
         }
     }
 }
