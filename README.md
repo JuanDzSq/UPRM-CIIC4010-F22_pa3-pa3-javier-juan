@@ -12,8 +12,8 @@ Don't forget that you must also fill out an evaluation form in Moodle to conside
 
 ## Grading
 
-Student A (Name AND Email):
-Student B (Name AND Email):
+Student A (Javier Rivera Rodriguez - javier.rivera97@upr.edu):
+Student B (Juan E. Diaz Diaz - juan.diaz33@upr.edu):
 
 Any project that doesn't compile will receive a 0.
 
@@ -21,3 +21,5 @@ If a partner has no commits in the repositories, he will receive a 0.
 
 ## Student Notes
 If you have any bonus specs or any details the TA's should know, you should include it here as well.
+
+Pressing left arrow and right arrow key will change the animation speed.
