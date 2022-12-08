@@ -18,8 +18,8 @@ class ofApp : public ofBaseApp {
     //Animation 
     bool animation;
     string direction;
-    unsigned int timer;
-    unsigned int speed;
+    int timer;
+    int speed;
     vector<int> speedOptions;
     bool keyLock;
 
