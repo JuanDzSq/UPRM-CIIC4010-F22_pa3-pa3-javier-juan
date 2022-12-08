@@ -88,7 +88,7 @@ void ofApp::draw() {
 
     if(animation == true){
         font.drawString("Animation Speed: " + to_string(speed - 2), 10, 170);               // Shows animation speed
-        ofDrawBitmapString("Press the arrow keys to \nchange animation speed", 10, 190);
+        ofDrawBitmapString("Press the arrow keys to change animation speed", 10, 190);
     }
 }
 
